@@ -12,4 +12,4 @@
    * A commit is recording the changes you made to a repository on your terminal. basically a save point for reference. A good message explains what changes were made, a unique ID, an author and email address, and a time stamp for reference.
 
 * What is a merge conflict?
-   * A merge conflict is when you want to merge a branch into another, but there are differences (other than the commit you've made on one side) between the branches that make a discrepancy. one must look at the differences and fix whatever is different before a merge can be made.
+   * A merge conflict is when you would like to merge a branch into another, but there are differences (other than the commit you've made on one side) between the branches that make a discrepancy. one must look at the differences and fix whatever is different before a merge can be made!
