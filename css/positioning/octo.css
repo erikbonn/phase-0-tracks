@@ -1,0 +1,21 @@
+.mroctopus {
+	position: absolute;
+}
+
+#octopus {
+	position: absolute; z-index: 1;
+	margin-left: 500px;
+	top: 100px;
+   
+}
+#glasses {
+	position: absolute; z-index: 3; 
+	margin-left: 545px;
+	top: 200px;
+ 
+}
+#hat {
+	position: absolute; z-index: 2;
+	margin-left: 490px;
+	
+	}
