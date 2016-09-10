@@ -1,6 +1,5 @@
 body {
-  width: auto;
-  margin: 20px;
+  margin: auto;
   max-width: 960px;
 }
 
@@ -16,20 +15,16 @@ cite {
 }
 
 #external-links {
-  list-style-type: none;
-  padding-left: 0px;
-  position: fixed;
   width: 15%;
   display: inline-block;
-  float: left;
-  vertical-align: middle;
+  vertical-align: top;
   }
 
 main {
 display: inline-block;
-  width: 75%;
-  padding: 200px;
+  width: 60%;
   vertical-align: top;
+  margin-left: 10%;
 }
 
 @media screen and (max-width: 500px) {
@@ -57,9 +52,17 @@ figure {
   margin-right: 0px;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and(max-width: 500px) {
+  main {
+    display: block;
+    font-size: 50%;
+  }
+}
+
+@media only screen and (max-width: 500px) {
   #external-links {
-    float: left;
+    display: block;
+    font-size: 50%;
   }
 }
 
