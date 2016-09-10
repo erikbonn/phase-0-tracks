@@ -1,3 +1,10 @@
+
+body {
+  width: auto;
+  margin: 20px;
+  max-width: 960px;
+}
+
 blockquote {
   border-left: 5px solid blue;
   padding: 15px;
@@ -12,8 +19,30 @@ cite {
 #external-links ul {
   list-style-type: none;
   padding-left: 0px;
+  position: fixed;
+  width: 20%;
+  display: inline-block;
+  float: left;
+  
 }
 
+main {
+
+  width: 756px;
+  padding: 200px;
+}
+@media screen and (max-width: 500px) {
+  p {
+    width: 100%;
+    font-size: 1.5em;
+  }
+
+@media screen and (max-width: 500px) {
+  blockquote {
+    width: 100%;
+    font-size: 1.5em;
+  }
+}
 /* you're welcome to edit the
 image, figure, and figcaption CSS if you'd like, 
 but it's optional! */
@@ -26,7 +55,18 @@ figure {
   margin-right: 0px;
 }
 
+@media screen and (max-width: 500px) {
+  #external-links {
+    float: left;
+  }
+
 figcaption {
   font-style: italic;
   text-align: right;
 }
+
+/*@media screen and (max-width: 500px) {
+  body {
+    background-color: hotpink;
+  }
+}*/
