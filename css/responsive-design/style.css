@@ -73,3 +73,10 @@ figcaption {
     background-color: hotpink;
   }
 }*/
+/* 1. To center the content of the entire page, you would need to make an id for all of the content of the whole website and then
+add a width (ex. 900px and then a margin of 0 auto.) this will make the left and right margins center the content. also, if you're using inline block elements, you can simply do a text align center on the parent element.
+2.Mobile first design is when the site is first developed for mobile use and then later developed to fit a desktop site. Icons might be expanded to text links etc.
+3. Float means that whatever is floating will be independent of the rest of the content of the site and can be designated to float to the left or right and the content of the site will wrap around the content that is floated.
+Pro's of display is that with an in-line block element, horizontal and vertical aligning is possible, but con is that you need to be aware of whitespace issues that can make two items that should be on one line get shifted because of the whitespace between the elements.
+Floats are great for making content go around the floated element, but are not ideal for centering.
+
