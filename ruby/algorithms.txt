@@ -1,0 +1,18 @@
+-Recieve input for desired floor number
+-look at list of floor numbers located inside elevator
+-Search through the list of floor numbers for the desired floor number
+	-push button that has the floor number and initiate cool jazz elevator music mp3 audio file and scan the list of numbers that light up until desired floor is lit up in the elevator. 
+-when desired floor number is lit up and doors have opened:
+	-exit elevator
+
+Garbage Compactor Task:
+
+-garbage can is 20 inches tall
+-compact applies 20 lbs of force
+-if trash day tuesday, dump trash into dumpster @500hrs
+	-else leave trash 
+-when garbage level reaches 18 inches, compact
+	-until 2 compact cycles, halt.
+-when garbage level reaches 20 inches, dump trash into dumpster
+ 	-if no bag detected, replace bag
+ 	-else play audio recording, "thank you for replacing the bag!"
