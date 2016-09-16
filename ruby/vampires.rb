@@ -1,3 +1,7 @@
+puts "How many employees will be processed?(ex. 1,2,3...)"
+	number = gets.chomp.to_i
+until number == 0
+
 puts "what is your name?"
 	name = gets.chomp
 puts "How old are you?"
@@ -26,4 +30,7 @@ else
 
  end
 
+	number = number - 1
+	
+end
 
