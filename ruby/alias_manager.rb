@@ -60,17 +60,19 @@ name_database = {
 # iterate through the data structure and print all of the data the user entered.
 loop do puts "want to create a secret name? type your first and last name in or type quit to exit."
 	name = gets.chomp
-	name_database[:real_names] = name
+	name_database[:real_names] << name
 	if name != "quit"
 		combo(name)
-		name_database[:secret_names] = combo(name)
+		name_database[:secret_names] << combo(name)
 	elsif name == "quit"
+		name_database[:real_names].delete("quit")
 	break
 	end
 end
-# I need to find out how to get all of the real and secret names to print below and not have the real names just be "quit".
-p name_database[:secret_names]
-p "are actually known as:" 
-p name_database[:real_names]
+# I need to find out how to get all of the real and secret names to print below and not have the real names just be "quit", and I know the answer is around lines 63 and 66!
 
+
+name_database.each do |key, value|
+	puts "#{key} are #{value}"
+end
 
