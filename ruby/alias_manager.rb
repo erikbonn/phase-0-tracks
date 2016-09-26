@@ -10,57 +10,48 @@ def last_first(name)
 	new_name.class
 	#then permanently reverse the order of the two indexes in the string
 	new_name.reverse!
+	new_name.to_s
 	p new_name
 end
-#advance both string one letter with .next and map!
-def change(name)
- name.chars.map! do
-    |x|
-#change all vowels one value forward. [aeiou] = > [eioua]
-    if  x == "a"
-        x = "e"
-     elsif x == "e"
-        x = "i"   
-     elsif x == "i"
-        x = "o"   
-     elsif x == "o"
-        x = "u"   
-     elsif x == "u"
-        x = "a"   
-#change all consonants next to vowels 2 spaces forward
-    elsif x.next == "a" || (x.next == "e" || x.next == "i" || x.next == "o" || x.next == "u")
-        x = x.next.next
-#change all leftover ( !consonate_next_to_vowel, !vowel) to one value forward
+#use .map and .next to move letters forward
+def alter(new_name)
+ new_name.chars.map! do
+    |letter|
+#change all vowels one vowel forward
+    if  letter == "a"
+        letter = "e"
+     elsif letter == "e"
+        letter = "i"   
+     elsif letter == "i"
+        letter = "o"   
+     elsif letter == "o"
+        letter = "u"   
+     elsif letter == "u"
+        letter = "a"   
     else
-        x = x.next
+        letter = letter.next
      end
 end
 end
 
-#make a method that calls both change and last_first methods and make a loop that will call it everytime someone enters any name but quit.
+#make a method that calls both alter and last_first methods and make a loop that will call it everytime someone enters any name but quit.
 def combo(name)
-	array = []
-	array = change(name)
-	array.join
-	p array
 	last_first(name)
+	# array = 
+	alter(name).join
+	#array.join
+	#p array
+	
 end
 
+#here is my data structure
 name_database = {
-	real_names: ["joe", "jake", "bryan"],
-	secret_names: ["rio", "keli", "cszep"]
+	real_names: [],
+	secret_names: []
 }
-# puts "Want to create a secret name? Type in a normal name (first/last) to return a secret code name."
-# name = gets.chomp
-# until name == "quit"
-# 	combo(name)
-# 	puts "want to create another? If not, type quit."
-# 	name = gets.chomp
-# end
 
 
 # Use a data structure to store the fake names as they are entered. When the user exits the program, 
-# iterate through the data structure and print all of the data the user entered.
 loop do puts "want to create a secret name? type your first and last name in or type quit to exit."
 	name = gets.chomp
 	name_database[:real_names] << name
@@ -71,9 +62,10 @@ loop do puts "want to create a secret name? type your first and last name in or 
 	break
 	end
 end
-# I need to find out how to get all of the real and secret names to print below and not have the real names just be "quit", and I know the answer is around lines 63 and 66!
 
-
+# iterate through the data structure and print all of the data the user entered.
 name_database.each do |key, value|
 	puts "#{key} are #{value}"
 end
+#### I couldn't figure out how to do everything, and I unfortunately ran out of time tryin to make the last name first method have the 
+#### alter method applied to it as well so that the name in the database would be reversed AND have the letters swithced. 
