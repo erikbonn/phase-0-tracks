@@ -36,11 +36,8 @@ end
 
 #make a method that calls both alter and last_first methods and make a loop that will call it everytime someone enters any name but quit.
 def combo(name)
-	last_first(name)
-	# array = 
+	last_first(name) 
 	alter(name).join
-	#array.join
-	#p array
 	
 end
 
