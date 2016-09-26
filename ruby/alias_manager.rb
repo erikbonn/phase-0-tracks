@@ -14,8 +14,8 @@ def last_first(name)
 	p new_name
 end
 #use .map and .next to move letters forward
-def alter(new_name)
- new_name.chars.map! do
+def alter(name)
+ name.chars.map! do
     |letter|
 #change all vowels one vowel forward
     if  letter == "a"
