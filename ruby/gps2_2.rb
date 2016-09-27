@@ -1,5 +1,17 @@
 # Method to create a list
 # input: string of items separated by spaces (example: "carrots apples cereal pizza")
+def create_list(list)
+	groceries = []
+	groceries = list.split(' ')
+	grocery_list = {}
+	groceries.each do |item|
+		grocery_list[item] = 1
+	end
+	p grocery_list
+end
+
+create_list("apples oranges milk")
+
 # steps: 
   # [fill in any steps here]
   # turn input into an array 
