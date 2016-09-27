@@ -7,10 +7,12 @@ def create_list(list)
 	groceries.each do |item|
 		grocery_list[item] = 1
 	end
-	p grocery_list
+	grocery_list
 end
 
-create_list("apples oranges milk")
+p create_list("apples oranges milk")
+   grocery_list = create_list("apples oranges milk")
+
 
 # steps: 
   # [fill in any steps here]
@@ -21,12 +23,25 @@ create_list("apples oranges milk")
 # output: Hash [what data type goes here, array or hash?]
 
 # Method to add an item to a list
+def add_item(item, quantity, list)
+	list[item] = quantity
+end
+
+p add_item("chicken", 2, grocery_list)
+p grocery_list
 # input: item name and optional quantity
 # steps: accept 2 arguments (key, value) and assign that to the hash.
 # output: print out current hash
 
 # Method to remove an item from the list
-# input: would accept 1 parameter, which is whatever item they would like to remove.
+# input: would accept 2 parameters, which are the grocery list and whatever item they would like to remove.
+def remove_item(item, list)
+	list.delete_if do |i|
+		i == item 
+	end
+end
+remove_item("apples", grocery_list)
+p grocery_list
 # steps: Use a hash method like deleteif to remove unwanted item from the hash
 # output: print updated has without the unwanted item.
 
