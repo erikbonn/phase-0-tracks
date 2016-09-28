@@ -1,3 +1,5 @@
+#### GPS 2_2 ####
+
 # Method to create a list
 # input: string of items separated by spaces (example: "carrots apples cereal pizza")
 def create_list(list)
