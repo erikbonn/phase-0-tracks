@@ -53,7 +53,7 @@ class Zombie
 	end
 
 	def stumble_walk
-		puts "Carl is creepily stumble walking towards me!"
+		puts "That zombie is creepily stumble-walking towards me!"
 	end
 
 	def attack
@@ -69,24 +69,21 @@ end
 
 instances_arr = []
 
-loop do
-	p Zombie.new
-	instances << Zombie.new
-	end
+
+
+50.times do |i|
+	i = Zombie.new
+	instances_arr << i
 end
+
 
 instances_arr.each do |call|
-	Zombie.new.stumble_walk
-	Zombie.new.attack
-	Zombie.new.voice
+	call.stumble_walk
+	call.attack
+	call.voice
 end
 
 
-
-# carl = Zombie.new
-# carl.stumble_walk
-# carl.attack
-# carl.voice
 
 
 
