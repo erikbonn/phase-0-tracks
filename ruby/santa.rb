@@ -37,14 +37,13 @@ end
 santas = []
 example_genders = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A"]
 example_ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer not to say", "Mystical Creature (unicorn)", "N/A"]
-# example_genders.length.
 20.times do |i|
   santas << Santa.new(example_genders.sample, example_ethnicities.sample)
-  # santas << Santa.new(example_genders[i.rand(example_genders.length)])
   puts "Creating santas..."
   puts "Gender: #{santas[i].gender}"
   puts "Ethnicity: #{santas[i].ethnicity}"
-  puts "Age:"
+  age = rand(140)
+  puts "Age: #{age}"
 end
 
 
@@ -56,10 +55,10 @@ santa.eat_milk_and_cookies("snickerdoodle")
 puts "who is santa mad at?"
 name = gets.chomp.capitalize
 santa.get_mad_at(name)
-puts "enter new age:"
-age = gets.to_i
-puts "original age is #{santa.age}."
-puts "age is #{age}."
+#I wasnt sure if you wante the driver code age here to be 1-140 or if you wanted a new age generated above for each new santa made. so i did both!
+puts "santa's original age is #{santa.age}."
+age = rand(140)
+puts "his age is now #{age}."
 
 
 
