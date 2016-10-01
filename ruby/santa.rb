@@ -1,4 +1,7 @@
 class Santa
+	attr_accessor :gender
+	attr_reader :age, :ethnicity
+
 	def initialize(gender, ethnicity)
 		@gender = gender
 		@ethnicity = ethnicity
@@ -7,10 +10,6 @@ class Santa
 		@age = 0
 	end
 
-	def about 
-		puts "Gender: #{@gender}"
-		puts "Ethnicity: #{@ethnicity}"
-	end
 
 	def speak
 		puts "Ho, ho, ho! Haaaappy holidays"
@@ -30,22 +29,6 @@ class Santa
 		puts @reigndeer_ranking
 	end
 
-	def gender #=(new_gender)
-		@gender #= new_gender
-	end
-
-	def ethnicity #=(new_eth)
-		@ethnicity #= new_eth
-	end
-
-	def age 
-		@age
-	end
-
-	def ethnicity
-		@ethnicity
-	end
-
 end
 
 
@@ -54,11 +37,14 @@ end
 santas = []
 example_genders = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A"]
 example_ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer not to say", "Mystical Creature (unicorn)", "N/A"]
-example_genders.length.times do |i|
-  santas << Santa.new(example_genders[i], example_ethnicities[i])
+# example_genders.length.
+20.times do |i|
+  santas << Santa.new(example_genders.sample, example_ethnicities.sample)
+  # santas << Santa.new(example_genders[i.rand(example_genders.length)])
   puts "Creating santas..."
   puts "Gender: #{santas[i].gender}"
   puts "Ethnicity: #{santas[i].ethnicity}"
+  puts "Age:"
 end
 
 
@@ -68,12 +54,12 @@ santa = Santa.new(@gender, @ethnicity)
 santa.speak
 santa.eat_milk_and_cookies("snickerdoodle")
 puts "who is santa mad at?"
-name = gets.chomp
+name = gets.chomp.capitalize
 santa.get_mad_at(name)
+puts "enter new age:"
+age = gets.to_i
+puts "original age is #{santa.age}."
+puts "age is #{age}."
 
-# puts "age is #{age}."
-# puts "enter new age:"
-# age = gets.to_i
-# puts "age is #{age}."
 
 
