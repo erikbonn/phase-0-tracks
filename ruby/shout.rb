@@ -35,5 +35,7 @@ end
 
 choir = Choir.new
 p choir.yelling_happily("MAMA MIA")
+p choir.yell_angrily("dun dun dun dun")
 warrior = Warrior.new
 p warrior.yell_angrily("YASSS DESTROY")
+p warrior.yelling_happily("WE WON")
