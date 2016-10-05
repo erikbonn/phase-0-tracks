@@ -5,7 +5,7 @@
 
 # EXPLANATION OF require_relative
 # Calls a file that is contained in the same directory, require by itself is used to call external library of code.
-# state data is a local file that can be raltively linked. If we called require on state_data it wouldn't work without
+# state data is a local file that can be relatively linked. If we called require on state_data it wouldn't work without
 # the absolute file path.
 
 require_relative 'state_data'
@@ -37,10 +37,10 @@ class VirusPredictor
       number_of_deaths = (@population * (increment * 0.1)).floor
       end
 
-  
+  print "#{@state} will lose #{number_of_deaths} people in this outbreak"
 
 
-
+    # old original code
     # # predicted deaths is solely based on population density
     # if @population_density >= 200
     #   number_of_deaths = (@population * 0.4).floor
@@ -53,8 +53,6 @@ class VirusPredictor
     # else
     #   number_of_deaths = (@population * 0.05).floor
     # end
-
-    print "#{@state} will lose #{number_of_deaths} people in this outbreak"
 
   end
 
@@ -71,9 +69,8 @@ class VirusPredictor
         months -= 0.5
       end
     end
-    
 
-
+    puts " and will spread across the state in #{months} months.\n\n"
 
     # if @population_density >= 200
     #   months += 0.5
@@ -86,8 +83,6 @@ class VirusPredictor
     # else
     #   months += 2.5
     # end
-
-    puts " and will spread across the state in #{months} months.\n\n"
 
   end
 
@@ -119,3 +114,34 @@ end
 
 #=======================================================================
 # Reflection Section
+
+# What are the differences between the two different hash syntaxes shown in the state_data file?
+# The key is using the rocket syntax, whereas the value that contains the second hash uses the symbol syntax.
+# from my research, it appears that symbols are more efficient syntax and memory-wise, but you can't change the value of a 
+# symbol like you can a string. strings could be identical but they represent two obects, whereas two symbols that are the same are 
+# the same in memory and function as one. 
+
+# What does require_relative do? How is it different from require?
+# Require_relative calls a file that is contained in the same directory, require by itself is used to call external library of code.
+# state_data is a local file that can be relatively linked. If we called require on state_data it wouldn't work without
+# the absolute file path.
+
+# What are some ways to iterate through a hash?
+# as seen above, you can perform an " .each do " iteration where you provide a key and value parameter, and then upon initializing 
+# a new instance, you add in the key and value pair that you want to be accessed (in this case, the key and value, which was another
+# hash, so we had to specify which parts we wanted)
+# you can also do .each_pair which returns the key value pair (but in a random order).  
+
+# When refactoring virus_effects, what stood out to you about the variables, if anything?
+# The arguments were @population and @state and such, but we realized that none of that was needed, and that you mearly needed 
+# call the two methods without parameters (and delete the parameters on the actual methods themselves), because we already made 
+# the instance variables available in our initialize method! 
+
+
+# What concept did you most solidify in this challenge?
+# this challenge solidified the scope of instance variables a little better for me and also improved my knowledge of hashes and 
+# iteration of nested data structures. 
+
+
+
+
