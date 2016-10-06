@@ -89,5 +89,5 @@ while !game.gameover
 end
 end
 
-######I ran out of time trying to make this, I'm sorry I couldn't get everything to work and make tests!
+###### I ran out of time trying to make this, I'm sorry I couldn't get everything to work and make tests!
 

@@ -1,7 +1,7 @@
 require_relative 'words'
 
 describe WordGame do 
-	let(:game) { WordGame.new }
+	let: (game) { WordGame.new }
 
 	it "Accepts a secret word and splits it into characters" do
     expect(game.secret(yellow)).to eq ["y", "e", "l", "l", "o", "w"]
