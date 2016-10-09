@@ -38,8 +38,8 @@ for (var key in secondCar) {
 }
 
 ///// release 3: We looped through the keys and values of the firstcar and secondcar object using a for loop we found through research.
-//    using a contstructer function to make a car is useful, but it seems like you use a constructor when you need to add
-//    methods and more things to it. If you just need something to store some items, you can you an object literal. 
+//    using a contstructer function to make a car is useful. It seems like you use a constructor when you need to add
+//    methods and more things to it. If you just need something to store some items, you can use an object literal. 
 
 
 
