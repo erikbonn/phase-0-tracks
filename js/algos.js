@@ -39,15 +39,16 @@ var dogs2 = {type: "english bulldog", hair: "curly"}
 // }
 
 function share(obj1, obj2) {
-		for (var key in obj1) {
-    if (obj1.hasOwnProperty(obj2(key))) {
-        return true 
-    } if (obj2.hasOwnProperty(obj1(key))) {
-    	return true
-    } else return false
+	for (var key in obj1) {
+    	if (obj2.hasOwnProperty(key)) {
+     		if (obj2[key] === obj1[key]) {
+    			return true;
+    			} 
     
-    }
-   }
+     		}
+  		}
+    return false;
+} 
 
 
 
@@ -56,7 +57,7 @@ function share(obj1, obj2) {
 
 console.log(longestWord(phrases));
 console.log(longestWord(cookies));
-console.log(share(people1, people2))
-console.log(share(dogs1, dogs2))
+console.log(share(people1, people2));
+console.log(share(dogs1, dogs2));
 
 
