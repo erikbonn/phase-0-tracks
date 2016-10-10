@@ -27,16 +27,8 @@ function longestWord(array) {
 
 var people1 = {name: "Steven", age: 54}
 var people2 = {name: "Tamir", age: 54}
-//////////////////////////////////////
 var dogs1 = {type: "pug", hair: "long"}
 var dogs2 = {type: "english bulldog", hair: "curly"}
-
-// function share(obj1, obj2) {
-// 	return Object.keys(obj1).reduce(function(map, k) {
-// 		if (obj1[k] == obj2[k]) map[k] = obj2[k];
-// 		return true
-
-// }
 
 function share(obj1, obj2) {
 	for (var key in obj1) {
@@ -50,14 +42,66 @@ function share(obj1, obj2) {
     return false;
 } 
 
+/// RELEASE 2 ///
+////  I figured out how to generate a random word of the length of the integer given in the argument, but I couldn't figure out 
+//    how to make that many words with randomly generated lengths. 
+function translator(int) {
+var num = int;
+var array = [];
+var text = "";
+var alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
+    for( var i=0; i < Math.floor(Math.random() * 10) + 1; i++ )
+        array += alpha.charAt(Math.floor(Math.random() * alpha.length));	
+    return array;
 
-//== (obj1.hasOwnProperty(key))
+}
+
 
 
 console.log(longestWord(phrases));
 console.log(longestWord(cookies));
 console.log(share(people1, people2));
 console.log(share(dogs1, dogs2));
+
+///// Couldn't get it to iterate 10 times, and ran out of time! I need to figure out how to take the array and apply the longest 
+//     word generator function without recalling the translator method again, and since I couldn't get multiple words out of the 
+///    translate function, The longest word method isn't really performing like it should since there is only 1 word each time.
+// 10.times do {
+// 	console.log(translator(4));
+// 	console.log(array)
+// 	console.log(longestWord(array))
+// }
+console.log(translator(4));
+	console.log(longestWord(translator(4)));
+
+console.log(translator(2));
+	console.log(longestWord(translator(2)));
+
+console.log(translator(6));
+	console.log(longestWord(translator(6)));
+
+console.log(translator(1));
+	console.log(longestWord(translator(1)));
+
+console.log(translator(5));
+	console.log(longestWord(translator(5)));
+
+console.log(translator(9));
+	console.log(longestWord(translator(9)));
+
+console.log(translator(10));
+	console.log(longestWord(translator(4)));
+
+console.log(translator(7));
+	console.log(longestWord(translator(7)));
+
+console.log(translator(8));
+	console.log(longestWord(translator(8)));
+
+console.log(translator(3));
+	console.log(longestWord(translator(3)));
+
+
 
 
