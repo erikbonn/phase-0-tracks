@@ -1,3 +1,41 @@
 h1 {
 	font-size: 3em;
 }
+
+header {
+	background-color: green;
+	text-align: center;
+	font-family: helvetica, sans-serif;
+}
+
+.column-1 {
+	background-color: blue;
+	display: inline-block;
+	width: 45%;
+	margin-right: 2%;
+}
+
+.column-2 {
+	background-color: red;
+	display: inline-block;
+	width: 45%;
+	margin-left: 2%;
+	vertical-align: top;
+}
+
+li:nth-child(odd){
+	background-color: gray;
+}
+
+li:nth-child(even){
+	background-color: black;
+}
+
+summary {
+	color: gray; 
+}
+
+footer {
+	background-color: yellow;
+	text-align: center;
+}
