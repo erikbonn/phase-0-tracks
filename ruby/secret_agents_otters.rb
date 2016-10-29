@@ -34,7 +34,13 @@ def decrypt(secret_word)
 	end
 	secret_word
 end
-
+p encrypt("abc")
+p encrypt("zed")
+p decrypt("bcd")
+p decrypt("afe")
+p decrypt(encrypt("swordfish"))
+# returned swordfish because it encrypted it and then decrypted it.
+# Driver code
 puts "please enter secret_word:"
 secret_word = gets.chomp
 puts "would you like to encrypt or decrypt? (e/d)" 
@@ -43,6 +49,5 @@ if choice == "e"
 		p encrypt(secret_word)
 	elsif choice == "d"
 		p decrypt(secret_word)
+	else p "not a valid response, try running the program again."
 end
-#returned swordfish because it encrypted it and then decrypted it.
-p decrypt(encrypt("swordfish"))
