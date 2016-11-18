@@ -80,10 +80,86 @@ until game.gameover == true
 	end
 end
 
-
 # game = WordGame.new("chop")
 # p game.underscore
 # p game.guess_letters("o")
+
+###### 
+# In the game class we will have an initialize method that accepts a word. the method will also contain a gameover variable that
+# is defaulted to false and a guesses left variable and a letters guessed variable equal to an array.
+#
+# there will be an underscore method where the word entered will be set to underscores the same length as the word.
+#
+# there will be a guess_letter method that accepts an input of a letter. the letter will be compared to the original word and
+# any letters that match will replace underscores with that letter. when there are no more underscores left, the gameover will be 
+# set to true. there will also be a counter on this loop that will give the player as many guesses as there are letters in the word.
+# If the player uses the same letter they've used before, the guess_count will not go down.
+# 
+# If the number of letter guesses exceeds the length of the word, then the gameover status will be set
+# to true, giving a taunting message. If the user correctly guesses all of the letters of the word without exceeding the number of guesses 
+# allowed, a congratulatory message is printed.
+
+# class GuessingGame 
+# 	attr_reader :guess_count, :word, :underscore
+# 	attr_accessor :gameover
+# 	def initialize(word)
+# 		@word = word
+# 		@gameover = false
+# 		@letters_guessed = []
+# 		@guess_count
+# 		@progress = underscore
+# 	end
+
+# 	def underscore
+# 		progress = ""
+# 		@word.length.times do |i|
+# 			progress << "_" ### creating a new string of the same length called progress.
+# 		end 
+# 		progress
+# 	end
+
+# 	def guess_letter(letter)
+# 		@word.split('').each_with_index do |lett, i|
+# 			if lett == letter
+# 				@progress[i] = lett
+# 			end
+# 		end
+# 		if !@letters_guessed.include?(letter)
+# 			@letters_guessed << letter
+# 		end
+# 		@guess_count = @word.length - @letters_guessed.length 
+# 			# puts @word.length
+#  		# 	puts @letters_guessed.length
+#  		p @progress
+# 		puts "#{@guess_count} guesses left!"
+# 		if !@progress.include?("_")
+# 			puts "YASS You win!"
+# 			@gameover = true
+# 			return
+# 		end
+# 	end
+		
+
+# end
+
+# # game = GuessingGame.new("good")
+# # p game.underscore
+# # p game.guess_letter("o")
+
+# puts "Player1, enter the word!"
+# word = gets.chomp
+# game = GuessingGame.new(word)
+# game.underscore             ##### NOT SURE HOW THIS WORKED WITHOUT ATTR READER
+# until game.gameover == true
+# 	if game.guess_count == 0
+# 		game.gameover = true
+# 		puts "You kinda suck at this game... try again!"
+# 	else
+# 		puts "Alright player2, guess a letter!"
+# 		letter = gets.chomp
+# 		game.guess_letter(letter)
+# 	end
+# end
 
 
 
