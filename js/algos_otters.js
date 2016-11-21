@@ -50,13 +50,45 @@ function share(obj1, obj2) {
 	return false;
 }
 
+/// release 2
+// input: number of strings to be generated
+// output: array of random lengthed strings
+// function:
+//     set results to an empty array
+//     set alphabet to a string of all letters
+//     FOR (the number of strings desired) times:
+//         set the number_of_letters to a random number
+//         set current_str to an empty string
+//         FOR (the number_of_letters) times:
+//             SET random_letter_index to a random number between 0-25
+//             Add alphabet[random_letter_index] to the current_str
+//         When current_str is complete, add current_str to results array
+//     When results array is finished, return it //
+
+function wordGenerator(num) {
+	var wordContainer = [];
+	var wordStorer = "";
+	var alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmno[qrstuvwxyz";
+		for (var i = 0; i < num; i++) {
+			var randomWordCounter = Math.floor(Math.random() * ((10 - 1))) + 1;
+
+			for (var x = 0; x < randomWordCounter; x++) {
+				var randomLet = alpha[Math.floor(Math.random() * ((alpha.length -1) - 0)) + 0];
+				wordStorer += randomLet;
+			};
+			wordContainer.push(wordStorer);
+			wordStorer = "";
+		};
+		return wordContainer;
+}
+
 
 console.log(longestWord(words));
 console.log(words);
 console.log(longestWord(peeps));
 console.log(share(people1, people2));
 console.log(share(cats1, cats2));
-
-
+console.log(wordGenerator(4));
+console.log(wordGenerator(5));
 
 
