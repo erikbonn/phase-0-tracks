@@ -1,0 +1,75 @@
+##### 8.4
+
+CREATE TABLE businesses (
+  id INTEGER PRIMARY KEY,
+  name VARCHAR(255)
+);
+
+CREATE TABLE users (
+  id INTEGER PRIMARY KEY,
+  first_name VARCHAR(255),
+  last_name VARCHAR(255)
+);
+
+
+INSERT INTO businesses (name) VALUES ("Grundy Hollow Wedding Chapel");
+INSERT INTO businesses (name) VALUES ("Amir's Towing");
+INSERT INTO businesses (name) VALUES ("The Beagle Nightclub");
+INSERT INTO users (first_name, Last_name) VALUES ("Bradford", "Pitt");
+INSERT INTO users (first_name, Last_name) VALUES ("Mandy", "Kaling");
+INSERT INTO users (first_name, Last_name) VALUES ("Angela", "Jolie");
+
+CREATE TABLE reviews (
+  id INTEGER PRIMARY KEY,
+  stars INT,
+  comment VARCHAR(255),
+  business_id INT,
+  user_id INT,
+FOREIGN KEY(business_id) REFERENCES businesses(id),
+FOREIGN KEY(user_id) REFERENCES users(id)
+);
+
+INSERT INTO reviews (stars, comment, business_id, user_id) VALUES (4, "Great facilities!", 1, 1);
+INSERT INTO reviews (stars, comment, business_id, user_id) VALUES (2, "HOW COULD I LIKE THIS HE TOWED MY CAR!", 2, 2);
+INSERT INTO reviews (stars, comment, business_id, user_id) VALUES (5, "I got KRUNK so I liked it", 3, 3);
+
+
+
+####### RELEASE 2 ########
+
+SELECT * FROM users, businesses, reviews;
+
+### NOW LETS DISLPAY ONLY NON REPETITIVE INFO
+
+
+SELECT
+  users.first_name,
+  users.last_name, 
+  businesses.name, 
+  reviews.stars, 
+  reviews.comment
+FROM 
+ reviews
+ LEFT JOIN users ON users.id = user_id
+ LEFT JOIN businesses ON businesses.id = business_id;
+
+ the outout is:
+ Bradford|Pitt|Grundy Hollow Wedding Chapel|4|Great facilities!
+Mandy|Kaling|Amir's Towing|2|HOW COULD I LIKE THIS HE TOWED MY CAR!
+Angela|Jolie|The Beagle Nightclub|5|I got KRUNK so I liked it
+sqlite> 
+
+### last question
+
+SELECT  users.first_name,
+  users.last_name, 
+  businesses.name, 
+  reviews.stars, 
+  reviews.comment
+FROM reviews
+JOIN users ON users.id = user_id
+JOIN businesses ON businesses.id = business_id
+WHERE comment="HOW COULD I LIKE THIS HE TOWED MY CAR!";
+
+outout: Mandy|Kaling|Amir's Towing|2|HOW COULD I LIKE THIS HE TOWED MY CAR!
+
