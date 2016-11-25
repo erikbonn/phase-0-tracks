@@ -59,23 +59,17 @@ Mandy|Kaling|Amir's Towing|2|HOW COULD I LIKE THIS HE TOWED MY CAR!
 Angela|Jolie|The Beagle Nightclub|5|I got KRUNK so I liked it
 sqlite> 
 
-SELECT 
-  users.first_name,
+### last question
+
+SELECT  users.first_name,
   users.last_name, 
   businesses.name, 
   reviews.stars, 
   reviews.comment
-FROM 
-   reviews
-LEFT JOIN users ON users.id = user_id
-LEFT JOIN businesses ON businesses.id = business_id;
+FROM reviews
+JOIN users ON users.id = user_id
+JOIN businesses ON businesses.id = business_id
+WHERE comment="HOW COULD I LIKE THIS HE TOWED MY CAR!";
 
+outout: Mandy|Kaling|Amir's Towing|2|HOW COULD I LIKE THIS HE TOWED MY CAR!
 
-
-### NONE OF THESE WORK YET
-
-SELECT * FROM reviews
-WHERE reviews.business_id="Amir's Towing";
-
-LEFT JOIN users ON users.id = user_id
-LEFT JOIN businesses ON businesses.id = business_id
