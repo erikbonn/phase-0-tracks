@@ -1,0 +1,140 @@
+############# 8.3 ######
+RELEASE 1
+
+
+CREATE TABLE dating_resources (
+  id INTEGER PRIMARY KEY,
+  name VARCHAR(255),
+  is_verified_source BOOLEAN
+  );
+
+CREATE TABLE potential_daters (
+  id INTEGER PRIMARY KEY,
+  first_name VARCHAR(255),
+  last_name VARCHAR(255),
+  willing_to_meet BOOLEAN,
+  resource_id INT,
+FOREIGN KEY(resource_id) REFERENCES dating_resources(id)
+);
+
+INSERT INTO dating_resources (name, is_verified_source) VALUES ("Tinder", "True");
+INSERT INTO dating_resources (name, is_verified_source) VALUES ("Bumble", "True");
+INSERT INTO dating_resources (name, is_verified_source) VALUES ("Yente's Matchmaking service", "False");
+INSERT INTO potential_daters (first_name, last_name, willing_to_meet, resource_id) VALUES ("Cassie", "Longfellow", "True", 2);
+INSERT INTO potential_daters (first_name, last_name, willing_to_meet, resource_id) VALUES ("Jackson", "Williams", "True", 1);
+INSERT INTO potential_daters (first_name, last_name, willing_to_meet, resource_id) VALUES ("Bruce", "jones", "True", 1);
+INSERT INTO potential_daters (first_name, last_name, willing_to_meet, resource_id) VALUES ("Cami", "Dangerfield", "True", 1);
+INSERT INTO potential_daters (first_name, last_name, willing_to_meet, resource_id) VALUES ("Creepy", "McCreeper", "True", 3);
+INSERT INTO potential_daters (first_name, last_name, willing_to_meet, resource_id) VALUES ("Brittany", "Branbury", "false", 1);
+INSERT INTO potential_daters (first_name, last_name, willing_to_meet, resource_id) VALUES ("Kevin", "Tanner", "True", 2);
+INSERT INTO potential_daters (first_name, last_name, willing_to_meet, resource_id) VALUES ("Billy", "Taylor", "True", 1);
+
+#### RELEASE 2
+
+SELECT * FROM potential_daters;
+output:
+1|Cassie|Longfellow|True|2
+2|Jackson|Williams|True|1
+3|Bruce|jones|True|1
+4|Cami|Dangerfield|True|1
+5|Creepy|McCreeper|True|3
+6|Brittany|Branbury|false|1
+7|Kevin|Tanner|True|2
+8|Billy|Taylor|True|1
+
+UPDATE potential_daters SET resource_id=2 WHERE first_name="Brittany";
+output:
+1|Cassie|Longfellow|True|2
+2|Jackson|Williams|True|1
+3|Bruce|jones|True|1
+4|Cami|Dangerfield|True|1
+5|Creepy|McCreeper|True|3
+6|Brittany|Branbury|false|2 
+7|Kevin|Tanner|True|2
+8|Billy|Taylor|True|1
+
+SELECT 
+first_name,
+last_name,
+willing_to_meet,
+dating_resources.name,
+dating_resources.is_verified_source
+FROM
+potential_daters
+JOIN dating_resources ON dating_resources.id = resource_id;
+output:
+Cassie|Longfellow|True|Bumble|True
+Jackson|Williams|True|Tinder|True
+Bruce|jones|True|Tinder|True
+Cami|Dangerfield|True|Tinder|True
+Creepy|McCreeper|True|Yente's Matchmaking service|False
+Brittany|Branbury|false|Bumble|True
+Kevin|Tanner|True|Bumble|True
+Billy|Taylor|True|Tinder|True
+
+SELECT 
+first_name,
+dating_resources.name,
+dating_resources.is_verified_source
+FROM
+potential_daters
+JOIN dating_resources ON dating_resources.id = resource_id
+WHERE name="Tinder";
+output:
+Jackson|Tinder|True
+Bruce|Tinder|True
+Cami|Tinder|True
+Billy|Tinder|True
+
+DELETE FROM potential_daters
+WHERE first_name="Bruce";
+output:
+1|Cassie|Longfellow|True|2
+2|Jackson|Williams|True|1
+4|Cami|Dangerfield|True|1
+5|Creepy|McCreeper|True|3
+6|Brittany|Branbury|false|2
+7|Kevin|Tanner|True|2
+8|Billy|Taylor|True|1
+
+#### THIS IS A GREAT RESOURCE FOR JOINS EXPLANATIONS
+https://www.techonthenet.com/sqlite/joins.php
+IN SQlite it appears tht there are only a couple types of joins that you can use. INNER JOIN(JOIN) and LEFT OUTER JOIN
+(LEFT JOIN) the INNER JOIN only gives you the common data between the two tables, whereas a LEFT OUTER JOIN will give you the table 
+to the left's data and the data that is common between it and the right table.
+
+ex.
+
+SELECT 
+first_name,
+last_name,
+willing_to_meet,
+dating_resources.name,
+dating_resources.is_verified_source
+FROM
+potential_daters
+LEFT OUTER JOIN dating_resources ON dating_resources.id = resource_id
+WHERE name="Bumble";
+output:
+Cassie|Longfellow|True|Bumble|True
+Brittany|Branbury|false|Bumble|True
+Kevin|Tanner|True|Bumble|True
+
+SELECT 
+potential_daters.first_name,
+potential_daters.last_name,
+potential_daters.willing_to_meet,
+name,
+is_verified_source
+FROM
+dating_resources
+LEFT OUTER JOIN potential_daters ON potential_daters.resource_id = dating_resources.id
+WHERE name="Bumble";
+output:
+Brittany|Branbury|false|Bumble|True
+Cassie|Longfellow|True|Bumble|True
+Kevin|Tanner|True|Bumble|True
+
+
+
+
