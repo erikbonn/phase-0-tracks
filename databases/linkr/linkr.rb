@@ -53,11 +53,11 @@ def create_daters(db, first_name, last_name, willing_to_meet, resource_id)
 end
 
 100.times do
-  dating_resources(db, Faker::Name.name, true)
+  dating_resources(db, Faker::Name.name, 'true')
 end
 
 100.times do
-  create_daters(db, Faker::Name.first_name, Faker::Name.last_name, true, rand(1..3))
+  create_daters(db, Faker::Name.first_name, Faker::Name.last_name, 'true', rand(1..3))
 end
 
 # explore ORM by retrieving data
