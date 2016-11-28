@@ -1,11 +1,11 @@
-# Linkr could be a sort of census type app that provides data to dating companies on how many people are using what apps etc
+# Linkrr could be a sort of census type app that provides data to dating companies on how many people are using what apps etc
 
 # gems
 require 'sqlite3'
 require 'faker'
 
 # create database
-db = SQLite3::Database.new("linkr.db")
+db = SQLite3::Database.new("linkrrr.db")
 db.results_as_hash = true
 
 # string delimiters
@@ -17,7 +17,7 @@ create_table_cmd = <<-SQL
   )
 SQL
 create_table_cmd2 = <<-SQL
-  CREATE TABLE potential_daters (
+  CREATE TABLE IF NOT EXISTS potential_daters (
   id INTEGER PRIMARY KEY,
   first_name VARCHAR(255),
   last_name VARCHAR(255),
@@ -53,11 +53,11 @@ def create_daters(db, first_name, last_name, willing_to_meet, resource_id)
 end
 
 100.times do
-  dating_resources(db, Faker::Name.name, Faker::BOOLEAN)
+  dating_resources(db, Faker::Name.name, true)
 end
 
 100.times do
-  create_daters(db, Faker::Name.first_name, Faker::Name.last_name, Faker::BOOLEAN, rand(1..3))
+  create_daters(db, Faker::Name.first_name, Faker::Name.last_name, true, rand(1..3))
 end
 
 # explore ORM by retrieving data
@@ -65,3 +65,6 @@ end
 # kittens.each do |kitten|
 #  puts "#{kitten['name']} is #{kitten['age']}"
 # end
+
+
+
