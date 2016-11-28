@@ -5,7 +5,7 @@ require 'sqlite3'
 require 'faker'
 
 # create database
-db = SQLite3::Database.new("linkrrr.db")
+db = SQLite3::Database.new("linkr.db")
 db.results_as_hash = true
 
 # string delimiters
