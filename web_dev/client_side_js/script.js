@@ -1,7 +1,7 @@
 console.log("IT IS ALIVE!!!");
 
 function addBlueBorder(event) {
-  console.log("click happened! here's the click event:");
+  console.log("You just clicked! this is the event:");
   console.log(event);
   event.target.style.borderBottom = "5px solid blue";
 }
