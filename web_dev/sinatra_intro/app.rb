@@ -44,3 +44,29 @@ get '/students/:id' do
   student = db.execute("SELECT * FROM students WHERE id=?", [params[:id]])[0]
   student.to_s
 end
+
+get '/contact/:contact' do 
+  contact = params[:contact]
+  "The contact address is #{contact}!"
+end
+
+get '/great_job' do
+  name = params[:name]
+  if name
+  "Good job, #{name}!"
+  else
+  "Good Job!"
+  end
+end
+
+get '/:number1/plus/:number2/:total' do
+    number1 = params[:number1]
+    number2 = params[:number2]
+    total = params[:total]
+    total = number1.to_i + number2.to_i
+    "#{number1} plus #{number2} is #{total}!"
+end
+
+## Rails is another web app lib in ruby.
+## you can use Postgresql and mongo in sinatra
+## The web stack is known often as LAMP (linux, apache, MySQL, PHP) but it refers to the collection of software needed for web dev.
